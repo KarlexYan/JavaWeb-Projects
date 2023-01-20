@@ -1,5 +1,6 @@
 package model;
 
+// 订单项类
 public class OrderItem {
     private int id;
     private float price;
