@@ -43,4 +43,22 @@ public class UserDao {
         }
         return false;
     }
+
+    // 通过用户名和密码查询登录
+    public User selectUsernamePassword(String username,String password) throws SQLException {
+        // sql语句
+        String sql = "select * from user where username = ? and password = ?";
+        // 执行
+        User user = qr.query(sql, new BeanHandler<User>(User.class), username, password);
+        return user;
+    }
+
+    // 通过邮箱和密码查询登录
+    public User selectEmailPassword(String email,String password) throws SQLException {
+        // sql语句
+        String sql = "select * from user where email = ? and password = ?";
+        // 执行
+        User user = qr.query(sql, new BeanHandler<User>(User.class), email, password);
+        return user;
+    }
 }
