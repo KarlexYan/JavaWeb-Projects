@@ -2,6 +2,7 @@ package utils;
 
 import java.math.BigDecimal;
 
+// 工具类PriceUtils 用来计算敏感价格，支持浮点和双浮点加减
 public class PriceUtils {
     public static float add(float a,float b) {
         BigDecimal bigA = new BigDecimal(Float.toString(a));
