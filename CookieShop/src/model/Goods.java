@@ -1,5 +1,5 @@
 package model;
-
+// 商品类
 public class Goods {
 	private int id;
 	private String name;
