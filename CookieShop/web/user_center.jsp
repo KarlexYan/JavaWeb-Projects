@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%--个人中心页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 	<script type="text/javascript" src="js/simpleCart.min.js"></script>
 </head>
 <body>
-
+	<%--引入页头，如果user变量为null，则跳转回首页--%>
 	<jsp:include page="/header.jsp">
 		<jsp:param value="4" name="flag"/>
 	</jsp:include>
@@ -33,6 +34,7 @@
 				
 					<div class="register-top-grid">
 						<h3>个人中心</h3>
+						<%--指向UserChangeAddressServlet--%>
 						<form action="/user_changeaddress" method="post">
 						<!-- 收货信息 start -->
 						<h4>收货信息</h4>
