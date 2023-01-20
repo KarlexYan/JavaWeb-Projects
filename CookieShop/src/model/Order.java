@@ -4,6 +4,7 @@ import utils.PriceUtils;
 
 import java.util.*;
 
+// 订单类
 public class Order {
     private int id;
     private float total;//总价
@@ -22,15 +23,22 @@ public class Order {
         user = new User();
         user.setUsername(username);
     }
+
+    // 增加商品
     public void addGoods(Goods g) {
+        // 如果该商品id已存在，获取该商品对象，商品数量+1
         if(itemMap.containsKey(g.getId())) {
             OrderItem item = itemMap.get(g.getId());
             item.setAmount(item.getAmount()+1);
+        // 商品不存在，新建订单项，存放(价格 数量 商品对象 订单对象)
         }else {
             OrderItem item = new OrderItem(g.getPrice(),1,g,this);
+            // itemMap存放id和订单项对象
             itemMap.put(g.getId(), item);
         }
+        // 购物车订单里商品总数数量+1
         amount++;
+        // 重新计算价格
         total = PriceUtils.add(total, g.getPrice());
     }
 
@@ -42,23 +50,36 @@ public class Order {
         this.itemList = itemList;
     }
 
+    // 减少商品
     public void lessen(int goodsid) {
+        // 在itemMap中查找goodsid是否存在
         if(itemMap.containsKey(goodsid)) {
+            // 如果存在，先获取订单项对象，将该订单商品数量-1
             OrderItem item = itemMap.get(goodsid);
             item.setAmount(item.getAmount()-1);
+            // 购物车订单里商品总数数量-1
             amount--;
+            // 重新计算几个
             total = PriceUtils.subtract(total, item.getPrice());
+            // 如果总数数量为0，则直接移除该商品
             if(item.getAmount()<=0) {
                 itemMap.remove(goodsid);
             }
         }
     }
+
+    // 删除商品
     public void delete(int goodsid)
     {
+        // 在itemMap中查找goodsid是否存在
         if(itemMap.containsKey(goodsid)) {
+            // 如果存在，先获取订单项对象
             OrderItem item = itemMap.get(goodsid);
+            // 购物车里重新计算价格，减少的价格为原来订单项的数量*金额
             total = PriceUtils.subtract(total, item.getAmount()*item.getPrice());
+            // 从购物车里减少商品总数
             amount-=item.getAmount();
+            // 移除该商品
             itemMap.remove(goodsid);
         }
     }
