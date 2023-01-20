@@ -18,11 +18,10 @@
 
 	<!--header-->
 	<jsp:include page="/header.jsp">
+		<%--这里定义一个flag变量并赋值，在header.jsp中会根据flag的value值来动态渲染 class="active" --%>
 		<jsp:param name="flag" value="10"></jsp:param>
 	</jsp:include>
 	<!--//header-->
-
-
 	<!--account-->
 	<div class="account">
 		<div class="container">
@@ -30,6 +29,7 @@
 				<c:if test="${!empty msg }">
 					<div class="alert alert-danger">${msg }</div>
 				</c:if>
+				<%--表单指向UserRegisterServlet--%>
 				<form action="/user_rigister" method="post">
 					<div class="register-top-grid">
 						<h3>注册新用户</h3>
