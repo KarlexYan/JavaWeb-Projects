@@ -7,7 +7,7 @@
   Time: 15:49
   To change this template use File | Settings | File Templates.
 --%>
-
+<%--母版页的页头--%>
 <!--header-->
 <div class="header">
     <div class="container">
@@ -33,14 +33,10 @@
                                     <div class="col-sm-12">
                                         <h4>商品分类</h4>
                                         <ul class="multi-column-dropdown">
-
                                             <li><a class="list" href="/goods_list">全部系列</a></li>
-
                                             <c:forEach items="${typeList}" var="t">
                                                 <li><a class="list" href="/goods_list?typeid=${t.id}">${t.name}</a></li>
                                             </c:forEach>
-
-
                                         </ul>
                                     </div>
                                 </div>
@@ -49,17 +45,18 @@
                     </li>
                     <li><a href="/goodsrecommend_list?type=2" <c:if test="${param.flag==3 && t==2}">class="active"</c:if>>热销</a></li>
                     <li><a href="/goodsrecommend_list?type=3" <c:if test="${param.flag==3 && t==3}">class="active"</c:if>>新品</a></li>
-
+                    <%--未登录状态，显示注册登录按钮--%>
                     <c:choose><c:when test="${empty user }">
                         <li><a href="/user_register.jsp" <c:if test="${param.flag==10 }">class="active"</c:if>>注册</a></li>
                         <li><a href="/user_login.jsp" <c:if test="${param.flag==9 }">class="active"</c:if>>登录</a></li>
                     </c:when><c:otherwise>
+                    <%--已登录，显示我的订单、个人中心、退出按钮--%>
                         <li><a href="/order_list" <c:if test="${param.flag==5 }">class="active"</c:if>>我的订单</a></li>
                         <li><a href="/user_center.jsp" <c:if test="${param.flag==4 }">class="active"</c:if>>个人中心</a></li>
                         <li><a href="/user_logout" >退出</a></li>
                     </c:otherwise>
                     </c:choose>
-
+                    <%--如果是管理员 多个后台管理按钮--%>
                     <c:if test="${!empty user && user.isadmin }">
                         <li><a href="/admin/index.jsp" target="_blank">后台管理</a></li>
                     </c:if>
