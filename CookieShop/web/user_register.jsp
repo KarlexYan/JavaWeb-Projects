@@ -17,8 +17,8 @@
 <body>
 
 	<!--header-->
+	<%--这里定义一个flag变量并赋值，在header.jsp中会根据flag的value值来动态渲染 class="active" --%>
 	<jsp:include page="/header.jsp">
-		<%--这里定义一个flag变量并赋值，在header.jsp中会根据flag的value值来动态渲染 class="active" --%>
 		<jsp:param name="flag" value="10"></jsp:param>
 	</jsp:include>
 	<!--//header-->
