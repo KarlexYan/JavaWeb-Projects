@@ -1,55 +1,110 @@
 package service;
 
 import dao.UserDao;
+import model.Page;
 import model.User;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserService {
-    private UserDao userDao = new UserDao();
-    // 注册功能
-    public boolean register(User user){
+    private UserDao uDao = new UserDao();
+    public boolean register(User user) {
         try {
-            // 判断用户能否注册
-            if(userDao.isUsernameExist(user.getUsername())){
+            if(uDao.isUsernameExist(user.getUsername())) {
                 return false;
             }
-            // 判断邮箱能否注册
-            if(userDao.isUsernameExist(user.getEmail())){
+            if(uDao.isEmailExist(user.getEmail())) {
                 return false;
             }
-            // 走到这里证明可以注册了
-            userDao.addUser(user);
+            uDao.addUser(user);
             return true;
-        }catch (SQLException e){
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return false;
     }
 
-    // 登录功能
-    public User login(String ue,String password){
-        User user = null;
-        // 使用用户名和密码登录
+    public User login(String ue,String password) {
+        User user=null;
         try {
-            user = userDao.selectUsernamePassword(ue, password);
+            user = uDao.selectByUsernamePassword(ue, password);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-
-        // 如果是用户名，就不用跑下面的 直接返回user对象
-        if(user!=null){
+        if(user!=null) {
             return user;
         }
-
-        // 使用邮箱和密码登录
         try {
-            user = userDao.selectEmailPassword(ue,password);
+            user=uDao.selectByEmailPassword(ue, password);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        if(user!=null) {
+            return user;
+        }
+        return null;
+    }
+    public User selectById(int id) {
+        User u=null;
+        try {
+            u = uDao.selectById(id);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return u;
+    }
+    public void updateUserAddress(User user) {
+        try {
+            uDao.updateUserAddress(user);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    public void updatePwd(User user) {
+        try {
+            uDao.updatePwd(user);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
-        // 返回user
-        return user;
+    public Page getUserPage(int pageNumber) {
+        Page p = new Page();
+        p.setPageNumber(pageNumber);
+        int pageSize = 7;
+        int totalCount = 0;
+        try {
+            totalCount = uDao.selectUserCount();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        p.SetPageSizeAndTotalCount(pageSize, totalCount);
+        List list=null;
+        try {
+            list = uDao.selectUserList( pageNumber, pageSize);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        p.setList(list);
+        return p;
+    }
+    public boolean delete(int id ) {
+        try {
+            uDao.delete(id);
+            return true;
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return false;
+        }
     }
 }

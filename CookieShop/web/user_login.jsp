@@ -14,11 +14,20 @@
 	<script type="text/javascript" src="js/simpleCart.min.js"></script>
 </head>
 <body>
+
+	
+
+
+
+
+
 	<!--header-->
 	<jsp:include page="header.jsp">
 		<jsp:param name="flag" value="9"></jsp:param>
 	</jsp:include>
 	<!--//header-->
+
+	
 	<!--account-->
 	<div class="account">
 		<div class="container">
@@ -29,7 +38,8 @@
 				<c:if test="${!empty failMsg }">
 					<div class="alert alert-danger">${failMsg }</div>
 				</c:if>
-				<form action="user_login" method="post">
+
+				<form action="/user_login" method="post">
 					<div class="register-top-grid">
 						<h3>用户登录</h3>
 						<div class="input">
@@ -53,8 +63,16 @@
 	    </div>
 	</div>
 	<!--//account-->
+
+	
+
+
+
+
 	<!--footer-->
 	<jsp:include page="footer.jsp"></jsp:include>
 	<!--//footer-->
+
+	
 </body>
 </html>

@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<jsp:include page="header.jsp">
+	<jsp:include page="/header.jsp">
 		<jsp:param value="4" name="flag"/>
 	</jsp:include>
 	<c:if test="${empty user}"><%response.sendRedirect("/index");%></c:if>

@@ -6,20 +6,16 @@ import java.io.IOException;
 
 @WebFilter(filterName = "EncodeFilter",urlPatterns = "/*")
 public class EncodeFilter implements Filter {
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
-    }
-
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        // 设置请求编码为utf-8
-        servletRequest.setCharacterEncoding("utf-8");
-        filterChain.doFilter(servletRequest, servletResponse);
-    }
-
-    @Override
     public void destroy() {
-        Filter.super.destroy();
     }
+
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        chain.doFilter(req, resp);
+    }
+
+    public void init(FilterConfig config) throws ServletException {
+
+    }
+
 }
