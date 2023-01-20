@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--c3p0的数据库连接池-->
 <c3p0-config>
 	<default-config>
 		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
