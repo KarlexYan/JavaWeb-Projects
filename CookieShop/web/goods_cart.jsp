@@ -15,8 +15,8 @@
 	<script type="text/javascript" src="js/cart.js"></script>
 </head>
 <body>
-	
-	
+
+
 
 
 
@@ -28,13 +28,13 @@
 	</jsp:include>
 	<!--//header-->
 
-	
+
 	<!--cart-items-->
 	<div class="cart-items">
 		<div class="container">
-		
-		
-		
+
+
+
 			<h2>我的购物车</h2>
 
 
@@ -58,20 +58,20 @@
 					</div>
 				</div>
 			</c:forEach>
-			
+
 			<div class="cart-header col-md-12">
 				<hr>
 				<h3>订单总金额: ¥ ${order.total}</h3>
 				<a class="btn btn-success btn-lg" style="margin-left:74%" href="/order_submit">提交订单</a>
 			</div>
-			
-			
-			
+
+
+
 		</div>
 	</div>
 	<!--//cart-items-->	
-	
-	
+
+
 
 
 
