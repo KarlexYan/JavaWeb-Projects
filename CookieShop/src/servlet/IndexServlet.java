@@ -20,17 +20,22 @@ public class IndexServlet extends HttpServlet {
     // 私有化变量
     private GoodsService gService=new GoodsService();
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 调用
+        // 调用商品业务层，获取轮播图列表
         List<Map<String,Object>> ScrollGood=gService.getScrollGood();
+        // 在请求中将轮播图列表写入变量scroll
         request.setAttribute("scroll",ScrollGood);
 
-        List<Map<String,Object>>newList=gService.getGoodsList(3);
-        request.setAttribute("newList",newList);
-
+        // 调用商品业务层，获取商品类别为2的商品列表
         List<Map<String,Object>>hotList=gService.getGoodsList(2);
+        // 在请求中将商品列表写入变量hotList，作为首页的热销推荐展示
         request.setAttribute("hotList",hotList);
 
-        //response.sendRedirect("index.jsp");
+        // 调用商品业务层，获取商品类别为3的商品列表
+        List<Map<String,Object>>newList=gService.getGoodsList(3);
+        // 在请求中将商品列表写入变量newList，作为首页的新品推荐展示
+        request.setAttribute("newList",newList);
+
+        // 将请求转发到index.jsp，渲染主页的各种信息
         request.getRequestDispatcher("index.jsp").forward(request,response);
 
 
