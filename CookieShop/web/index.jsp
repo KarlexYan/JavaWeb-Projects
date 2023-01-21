@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%--蛋糕商城首页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,7 @@
 <div class="banner">
     <div class="container">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+            <!-- 动态加载轮播图的Indicators -->
             <ol class="carousel-indicators" id="olnum">
                 <c:forEach items="${scroll}" var="g" varStatus="status">
                     <c:choose>
@@ -45,7 +45,7 @@
                 </c:forEach>
             </ol>
 
-            <!-- Wrapper for slides -->
+            <!-- 动态加载轮播图 -->
             <div class="carousel-inner" role="listbox" id="lunbotu" style="width: 1242px; height: 432px;">
                 <c:forEach items="${scroll}" var="g" varStatus="status">
                     <c:choose>
@@ -91,9 +91,10 @@
 </div>
 
 <!--//banner-->
-
+<%--背景图--%>
 <div class="subscribe2"></div>
 
+<%--动态渲染热销推荐，放在图片上会弹出查看详情和立刻购买项--%>
 <!--gallery-->
 <div class="gallery">
     <div class="container">
@@ -126,7 +127,7 @@
 
 
         </div>
-
+        <%--动态渲染新品推荐，放在图片上会弹出查看详情和立刻购买项--%>
         <div class="clearfix"></div>
         <div class="alert alert-info">新品推荐</div>
         <div class="gallery-grids">
@@ -162,6 +163,7 @@
 <!--//gallery-->
 
 <!--subscribe-->
+<%--背景图--%>
 <div class="subscribe"></div>
 <!--//subscribe-->
 
