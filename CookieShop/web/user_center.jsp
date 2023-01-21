@@ -56,6 +56,7 @@
 						<!-- 收货信息 end -->
 						</form>
 						<hr>
+						<%--指向UserChangePwd--%>
 						<form action="/user_changepwd" method="post">
 						<h4>安全信息</h4>
 						<div class="input">
