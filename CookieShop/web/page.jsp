@@ -5,6 +5,8 @@
   Time: 1:43 PM
   To change this template use File | Settings | File Templates.
 --%>
+
+<%--页码展示部分 包含首页 上一页 下一页 及 goto--%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
