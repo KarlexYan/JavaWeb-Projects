@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+// 页码栏实体类
 public class Page {
     private int pageNumber;
     private int pageSize;
@@ -10,10 +11,12 @@ public class Page {
 
     private List<Object> list;
 
+    // 计算所有商品除以一页显示数量后，总共多少页
     public void SetPageSizeAndTotalCount(int pageSize,int totalCount)
     {
         this.pageSize=pageSize;
         this.totalCount=totalCount;
+        // totalPage变量即存放总共有多少页
         totalPage= (int)Math.ceil((double)totalCount/pageSize);
     }
     public int getPageNumber() {
