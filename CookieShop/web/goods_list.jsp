@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%--商品列表页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,27 +23,17 @@
     <script type="text/javascript" src="js/cart.js"></script>
 </head>
 <body>
-
-
-
-
-
-
-
 <!--header-->
 <jsp:include page="header.jsp">
     <jsp:param name="flag" value="2"></jsp:param>
 </jsp:include>
 <!--//header-->
 
-
 <!--products-->
 <div class="products">
     <div class="container">
         <h2><c:choose><c:when test="${empty t}">全部系列</c:when><c:otherwise>${t.name}</c:otherwise> </c:choose></h2>
-
         <div class="col-md-12 product-model-sec">
-
             <c:forEach items="${p.list}" var="g">
                 <div class="product-grid">
                     <a href="/goods_detail?id=${g.id}">
@@ -66,7 +57,6 @@
                     </div>
                 </div>
             </c:forEach>
-
         </div>
 
         <jsp:include page="page.jsp">
@@ -77,11 +67,6 @@
     </div>
 </div>
 <!--//products-->
-
-
-
-
-
 
 <!--footer-->
 <jsp:include page="footer.jsp"></jsp:include>
