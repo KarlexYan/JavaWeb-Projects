@@ -17,7 +17,7 @@ public class OrderSubmitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从session获取user变量
         if(request.getSession().getAttribute("user")!=null) {
-            // 如果不为空，说明已登录，将请求转发到订单提交页
+            // 如果不为空，说明已登录，将请求转发到订单信息提交页
             request.getRequestDispatcher("/order_submit.jsp").forward(request, response);
         }else {
             // 如果为空，提示需要登录后再提交
