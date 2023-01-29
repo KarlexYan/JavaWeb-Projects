@@ -1,8 +1,9 @@
-
+// 购物车前端JavaScript，负责实时显示数据
 /**
  * 加入购物车
  */
 function buy(goodid){
+    /*指向GoodsBuyServlet 传入参数goodsid 回调函数function(data)*/
 	$.post("goods_buy", {goodsid:goodid}, function(data){
 		if(data=="ok")
 		{
@@ -32,8 +33,11 @@ function buy(goodid){
 
 	});
 }
-
+/**
+ * 购物车减少商品数量
+ */
 function lessen(goodsid){
+    /*指向GoodsLessenServlet 传入参数goodsid 回调函数function(data)*/
     $.post("goods_lessen", {goodsid:goodsid}, function(data){
         if(data=="ok"){
             layer.msg("操作成功!", {time:800}, function(){
@@ -56,6 +60,7 @@ function lessen(goodsid){
  * 购物车删除
  */
 function deletes(goodid){
+    /*指向GoodsDeleteServlet 传入参数goodsid 回调函数function(data)*/
     $.post("goods_delete", {goodsid:goodid}, function(data){
         if(data=="ok"){
             layer.msg("删除成功!", {time:800}, function(){
