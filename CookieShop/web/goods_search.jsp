@@ -2,6 +2,7 @@
 		 pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%--商品搜索页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +28,10 @@
 <!--products-->
 <div class="products">
 	<div class="container">
+		<%--从servlet传入的请求变量中获取keyword--%>
 		<h2> 搜索 ‘${param.keyword }’的结果 </h2>
-
 		<div class="col-md-12 product-model-sec">
-
+			<%--将servlet传入的请求变量中获取p对象中的商品list，定义为g--%>
 			<c:forEach items="${p.list }" var="g">
 				<div class="product-grid">
 					<a href="${pageContext.request.contextPath }/goods_detail?id=${g.id}">
