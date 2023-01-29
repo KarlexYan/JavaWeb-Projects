@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+<%--购物车页--%>
 <head>
 	<title>购物车</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,28 +17,16 @@
 </head>
 <body>
 
-
-
-
-
-
-
 	<!--header-->
 	<jsp:include page="header.jsp">
 		<jsp:param name="flag" value="7"></jsp:param>
 	</jsp:include>
 	<!--//header-->
 
-
 	<!--cart-items-->
 	<div class="cart-items">
 		<div class="container">
-
-
-
 			<h2>我的购物车</h2>
-
-
 			<c:forEach items="${order.itemMap }" var="item">
 				<div class="cart-header col-md-6">
 					<div class="cart-sec simpleCart_shelfItem">
@@ -58,28 +47,19 @@
 					</div>
 				</div>
 			</c:forEach>
-
 			<div class="cart-header col-md-12">
 				<hr>
 				<h3>订单总金额: ¥ ${order.total}</h3>
+				<%--指向OrderSubmitServlet--%>
 				<a class="btn btn-success btn-lg" style="margin-left:74%" href="/order_submit">提交订单</a>
 			</div>
-
-
-
 		</div>
 	</div>
 	<!--//cart-items-->	
 
-
-
-
-
-
 	<!--footer-->
 	<jsp:include page="footer.jsp"></jsp:include>
 	<!--//footer-->
-
 
 </body>
 </html>
