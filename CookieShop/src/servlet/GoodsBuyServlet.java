@@ -35,6 +35,8 @@ public class GoodsBuyServlet extends HttpServlet {
         // 判断库存是否大于0
         if(goods.getStock()>0) {
             // 如果大于0，将商品添加到订单对象中，并响应ok
+            // 如果已存在，则数量+1
+            // 不存在，则将该商品作为一个订单项存放到itemMap中
             o.addGoods(goods);
             response.getWriter().print("ok");
         }else {
