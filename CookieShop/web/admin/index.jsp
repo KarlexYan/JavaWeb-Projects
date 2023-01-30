@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%--后台管理主页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,18 +10,9 @@
 </head>
 <body>
 <div class="container-fluid">
-
-	
-
-
-
-
 <jsp:include page="header.jsp"></jsp:include>
-
 	<br><br>
-	
 	<div class="alert alert-success" role="alert">恭喜你! 登录成功了</div>
-	
 </div>	
 </body>
 </html>
