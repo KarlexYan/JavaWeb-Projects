@@ -1,6 +1,12 @@
 package model;
 
+// 推荐对象类
 public class Recommend {
+	// 设置推荐的样式 1条幅 2热销 3新品
+	public static final int BANNERS = 1;
+	public static final int HOTSALE = 2;
+	public static final int NEWPRODUCTS = 3;
+
 	private int id;
 	private int type;//1条幅 2热销 3新品
 	private Goods goods;
