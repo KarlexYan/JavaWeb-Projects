@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%--热销商品页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,27 +24,17 @@
     <script type="text/javascript" src="js/cart.js"></script>
 </head>
 <body>
-
-
-
-
-
-
-
 <!--header-->
 <jsp:include page="header.jsp">
     <jsp:param name="flag" value="3"></jsp:param>
 </jsp:include>
 <!--//header-->
 
-
 <!--products-->
 <div class="products">
     <div class="container">
         <h2><c:choose><c:when test="${t==2}">热销商品</c:when><c:otherwise>新品商品</c:otherwise></c:choose></h2>
-
         <div class="col-md-12 product-model-sec">
-
             <c:forEach items="${p.list}" var="g">
                 <div class="product-grid">
                     <a href="/goods_detail?id=${g.id}">
@@ -67,11 +58,7 @@
                     </div>
                 </div>
             </c:forEach>
-
-
-
         </div>
-
         <jsp:include page="page.jsp">
             <jsp:param name="url" value="/goodsrecommend_list"></jsp:param>
             <jsp:param name="param" value="&type=${t}"></jsp:param>
@@ -80,16 +67,9 @@
     </div>
 </div>
 <!--//products-->
-
-
-
-
-
-
 <!--footer-->
 <jsp:include page="footer.jsp"></jsp:include>
 <!--//footer-->
-
 
 </body>
 </html>
