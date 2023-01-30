@@ -6,6 +6,17 @@ import java.util.*;
 
 // 订单类
 public class Order {
+    // 设置支付状态的常量 1未付款/2已付款/3已发货/4已完成
+    public static final int Unpaid = 1;
+    public static final int Paid = 2;
+    public static final int Shipped = 3;
+    public static final int Completed = 4;
+
+    // 设置支付方式的常量 1微信/2支付宝/3货到付款
+    public static final int WeChat = 1;
+    public static final int Alipay = 2;
+    public static final int Delivery = 3;
+
     private int id;
     private float total;//总价
     private int amount;// 商品总数
