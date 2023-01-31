@@ -77,7 +77,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-
 	<br>
 	<jsp:include page="/page.jsp">
 		<jsp:param value="/admin/goods_list" name="url"/>
