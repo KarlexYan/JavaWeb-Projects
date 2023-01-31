@@ -2,6 +2,7 @@
 		 pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%--后台用户修改页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 	<jsp:include page="/admin/header.jsp"></jsp:include>
 
 	<br><br>
-
+	<%--表单信息指向AdminUserEditServlet--%>
 	<form class="form-horizontal" action="/admin/user_edit" method="post">
 		<input type="hidden" name="id" value="${u.id }">
 		<div class="form-group">
