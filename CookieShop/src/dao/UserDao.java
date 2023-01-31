@@ -37,12 +37,18 @@ public class UserDao {
             return true;
         }
     }
+
+    // 判断邮箱是否存在
     public boolean isEmailExist(String email) throws SQLException {
+        // // 定义sql语句，根据email查找所有信息
         String sql = "select * from user where email = ?";
+        // 执行语句
         User u = qr.query(sql, new BeanHandler<User>(User.class),email);
+        // 如果返回的是null，说明邮箱不存在，返回false
         if(u==null) {
             return false;
         }else {
+            // 否则邮箱已存在，返回true
             return true;
         }
     }
@@ -62,8 +68,12 @@ public class UserDao {
         // 执行语句，返回user对象
         return qr.query(sql, new BeanHandler<User>(User.class),email,password);
     }
+
+    // 根据用户id获取用户对象
     public User selectById(int id) throws SQLException {
+        // 定义sql语句
         String sql = "select * from user where id=?";
+        // 执行语句，返回user对象
         return qr.query(sql, new BeanHandler<User>(User.class),id);
     }
 
