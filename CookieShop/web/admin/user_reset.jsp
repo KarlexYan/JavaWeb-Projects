@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 		 pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%--后台用户重置密码页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +12,10 @@
 </head>
 <body>
 <div class="container-fluid">
-
 	<jsp:include page="/admin/header.jsp"></jsp:include>
-
 	<br><br>
 
+	<%--表单指向AdminUserResetServlet--%>
 	<form class="form-horizontal" action="/admin/user_reset" method="post">
 		<input type="hidden" name="id" value="${param.id }">
 		<div class="form-group">
@@ -37,9 +38,7 @@
 			</div>
 		</div>
 	</form>
-
 	<span style="color:red;"></span>
-
 </div>
 </body>
 </html>
