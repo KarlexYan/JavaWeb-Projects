@@ -62,14 +62,19 @@ public class UserService {
         // 查找不到用户，返回null
         return null;
     }
+
+    // 根据用户id获取用户对象
     public User selectById(int id) {
+        // 创建User对象，初始化为null
         User u=null;
         try {
+            // 调用用户持久层，根据id获取用户对象
             u = uDao.selectById(id);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        // 返回用户对象
         return u;
     }
 
