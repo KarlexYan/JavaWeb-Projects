@@ -56,15 +56,24 @@ public class OrderDao {
         // 返回列表
         return query;
     }
+
+    // 获取指定订单状态的订单数量
     public int getOrderCount(int status) throws SQLException {
-        QueryRunner r = new QueryRunner(DataSourceUtils.getDataSource());
-        String sql = "";
+        // 当不添加订单状态类型限制的时候
         if(status==0) {
-            sql = "select count(*) from `order`";
-            return r.query(sql, new ScalarHandler<Long>()).intValue();
+            // 定义sql语句
+            String sql = "select count(*) from `order`";
+            // 执行
+            int i = qr.query(sql, new ScalarHandler<Long>()).intValue();
+            // 返回数量
+            return i;
         }else {
-            sql = "select count(*) from `order` where status=?";
-            return r.query(sql, new ScalarHandler<Long>(),status).intValue();
+            // 定义sql语句
+            String sql = "select count(*) from `order` where status=?";
+            // 执行
+            int i = qr.query(sql, new ScalarHandler<Long>(), status).intValue();
+            // 返回数量
+            return i;
         }
     }
 
