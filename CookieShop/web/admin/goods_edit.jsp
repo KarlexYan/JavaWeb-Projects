@@ -2,7 +2,7 @@
 		 pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
+<%--后台商品编辑页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,7 @@
 	<jsp:include page="/admin/header.jsp"></jsp:include>
 
 	<br><br>
+	<%--表单数据指向AdminGoodsEditServlet--%>
 	<form class="form-horizontal" action="/admin/goods_edit" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="${g.id }"/>
 		<input type="hidden" name="cover" value="${g.cover }"/>
@@ -69,11 +70,9 @@
 			<label for="select_topic" class="col-sm-1 control-label">类目</label>
 			<div class="col-sm-6">
 				<select class="form-control" id="select_topic" name="typeid">
-
 					<c:forEach items="${typeList }" var="t">
 						<option <c:if test="${t.id==g.type.id }">selected="selected"</c:if> value="${t.id }">${t.name }</option>
 					</c:forEach>
-
 				</select>
 			</div>
 		</div>

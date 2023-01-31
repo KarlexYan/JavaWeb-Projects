@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 		 pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%--后台商品管理页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,25 +15,17 @@
 
 	<jsp:include page="/admin/header.jsp"></jsp:include>
 
+	<%--指向AdminGoodsAddServlet--%>
 	<div class="text-right"><a class="btn btn-warning" href="/admin/goods_add.jsp">添加商品</a></div>
-
 	<br>
-
 	<ul role="tablist" class="nav nav-tabs">
 		<li <c:if test="${type==0 }">class="active"</c:if> role="presentation"><a href="/admin/goods_list">全部商品</a></li>
 		<li <c:if test="${type==1 }">class="active"</c:if> role="presentation"><a href="/admin/goods_list?type=1">条幅推荐</a></li>
 		<li <c:if test="${type==2 }">class="active"</c:if> role="presentation"><a href="/admin/goods_list?type=2">热销推荐</a></li>
 		<li <c:if test="${type==3 }">class="active"</c:if> role="presentation"><a href="/admin/goods_list?type=3">新品推荐</a></li>
 	</ul>
-
-
-
-
-
 	<br>
-
 	<table class="table table-bordered table-hover">
-
 		<tr>
 			<th width="5%">ID</th>
 			<th width="10%">图片</th>
@@ -41,7 +35,6 @@
 			<th width="10%">类目</th>
 			<th width="25%">操作</th>
 		</tr>
-
 		<c:forEach items="${p.list }" var="g">
 			<tr>
 				<td><p>${g.id }</p></td>
@@ -76,15 +69,13 @@
 								<a class="btn btn-primary" href="/admin/goods_recommend?id=${g.id }&method=add&typeTarget=3&pageNumber=${p.pageNumber}&type=${type}">加入新品</a>
 							</c:otherwise>
 						</c:choose>
-
 					</p>
 					<a class="btn btn-success" href="/admin/goods_editshow?id=${g.id }& pageNumber=${p.pageNumber}&type=${type}">修改</a>
+					<%--指向AdminGoodsDeleteServlet--%>
 					<a class="btn btn-danger" href="/admin/goods_delete?id=${g.id }&pageNumber=${p.pageNumber}&type=${type}">删除</a>
 				</td>
 			</tr>
 		</c:forEach>
-
-
 	</table>
 
 	<br>
