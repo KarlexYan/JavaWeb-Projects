@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%--后台客户管理页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +11,7 @@
 </head>
 <body>
 <div class="container-fluid">
-
-	
-
-
-
-
 	<jsp:include page="header.jsp"></jsp:include>
-
 	<div class="text-right"><a class="btn btn-warning" href="user_add.jsp">添加客户</a></div>
 	<c:if test="${!empty msg }">
 		<div class="alert alert-success">${msg }</div>
@@ -27,9 +21,7 @@
 	</c:if>
 	<br>
 	<br>
-	
 	<table class="table table-bordered table-hover">
-
 	<tr>
 		<th width="5%">ID</th>
 		<th width="10%">用户名</th>
@@ -39,8 +31,6 @@
 		<th width="10%">地址</th>
 		<th width="12%">操作</th>
 	</tr>
-
-
 		<c:forEach items="${p.list }" var="u">
 			<tr>
 				<td><p>${u.id }</p></td>
@@ -56,10 +46,7 @@
 				</td>
 			</tr>
 		</c:forEach>
-     
-     
 </table>
-
 <br>
 	<jsp:include page="/page.jsp">
 		<jsp:param value="/admin/user_list" name="url"/>
