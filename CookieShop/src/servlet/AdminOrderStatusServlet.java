@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-// 后台订单操作控制层
+// 后台订单状态修改操作控制层
 @WebServlet(name = "admin_order_status",urlPatterns = "/admin/order_status")
 public class AdminOrderStatusServlet extends HttpServlet {
     // 私有化订单业务层
