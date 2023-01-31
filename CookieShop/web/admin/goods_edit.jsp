@@ -14,7 +14,6 @@
 <div class="container-fluid">
 
 	<jsp:include page="/admin/header.jsp"></jsp:include>
-
 	<br><br>
 	<%--表单数据指向AdminGoodsEditServlet--%>
 	<form class="form-horizontal" action="/admin/goods_edit" method="post" enctype="multipart/form-data">
