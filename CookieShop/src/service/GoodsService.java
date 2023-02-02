@@ -168,6 +168,8 @@ public class GoodsService {
         // 返回page对象
         return p;
     }
+
+    // 添加推荐业务
     public void addRecommend(int id,int type) {
         try {
             gDao.addRecommend(id, type);
@@ -176,6 +178,8 @@ public class GoodsService {
             e.printStackTrace();
         }
     }
+
+    // 移除推荐业务
     public void removeRecommend(int id,int type) {
         try {
             gDao.removeRecommend(id, type);
