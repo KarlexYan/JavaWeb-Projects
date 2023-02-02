@@ -176,15 +176,19 @@ public class GoodsDao {
             return true;
         }
     }
+
+    // 根据商品id的推荐typeTarget插入到推荐表中
     public void addRecommend(int id,int type) throws SQLException {
-        QueryRunner r = new QueryRunner(DataSourceUtils.getDataSource());
+        // 定义sql语句
         String sql = "insert into recommend(type,goods_id) values(?,?)";
-        r.update(sql,type,id);
+        qr.update(sql,type,id);
     }
+
+    // 根据商品id的推荐typeTarget从推荐表中移除
     public void removeRecommend(int id,int type) throws SQLException {
-        QueryRunner r = new QueryRunner(DataSourceUtils.getDataSource());
+        // 定义sql语句
         String sql = "delete from recommend where type=? and goods_id=?";
-        r.update(sql,type,id);
+        qr.update(sql,type,id);
     }
 
     // 插入数据到商品表
