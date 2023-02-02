@@ -2,6 +2,7 @@
 		 pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%--后台类目编辑页--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +12,9 @@
 </head>
 <body>
 <div class="container-fluid">
-
-
 	<jsp:include page="/admin/header.jsp"></jsp:include>
-
 	<br><br>
-
+	<%--表单指向AdminTypeEditServlet--%>
 	<form class="form-horizontal" action="/admin/type_edit" method="post">
 		<input type="hidden" name="id" value="${param.id }">
 		<div class="form-group">
@@ -31,9 +29,7 @@
 			</div>
 		</div>
 	</form>
-
 	<span style="color:red;"></span>
-
 </div>
 </body>
 </html>
