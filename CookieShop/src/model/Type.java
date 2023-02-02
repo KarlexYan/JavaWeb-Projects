@@ -3,6 +3,7 @@ package model;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+// 类型实体类
 public class Type {
 	private int id;
 	private String name;
