@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
+// 对某些事件进行监听，以便及时作出处理
 @WebListener()
 public class ApplicationListener implements ServletContextListener,
         HttpSessionListener, HttpSessionAttributeListener {
@@ -26,6 +27,7 @@ public class ApplicationListener implements ServletContextListener,
          initialized(when the Web application is deployed). 
          You can initialize servlet context related data here.
       */
+        // 每次在初始化Servlet的时候调用类型的业务层，获取到所有类型数据列表，写入到session的变量typeList中
         sce.getServletContext().setAttribute("typeList",tsService.GetAllType());
     }
 
